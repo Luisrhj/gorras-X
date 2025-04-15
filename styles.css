@@ -70,3 +70,11 @@ footer {
   width: 80%;
   max-width: 300px;
 }
+.modelo img {
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+.modelo img:hover {
+  transform: scale(1.08);
+}

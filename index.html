@@ -37,6 +37,10 @@
     .modelo img {
       max-width: 100%;
       border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+    .modelo img:hover {
+      transform: scale(1.08);
     }
     .modelo button {
       margin-top: 10px;
@@ -138,7 +142,7 @@
 
     function comprar(producto) {
       alert("Gracias por tu interés en " + producto + ". Te contactaremos por WhatsApp.");
-      const numero = "5215555555555"; // Cambia este número por el tuyo real
+      const numero = "5215555555555";
       const mensaje = encodeURIComponent("Hola, estoy interesado en el producto: " + producto);
       window.open("https://wa.me/" + numero + "?text=" + mensaje, "_blank");
     }
