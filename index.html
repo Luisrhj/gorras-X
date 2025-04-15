@@ -196,7 +196,10 @@
   <div id="mensajeCarrito">¡Producto añadido al carrito!</div>
 
   <!-- SONIDO -->
-  <audio id="sonidoCompra" src="https://www.myinstants.com/media/sounds/cartoon-success.mp3" preload="auto"></audio>
+ <audio id="sonidoCompra" preload="auto">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-reward-952.mp3" type="audio/mp3">
+</audio>
+
 
   <!-- WhatsApp Script -->
   <script>
@@ -221,20 +224,31 @@
     let total = 0;
     let descripcion = "";
 
-    function agregarAlCarrito(producto, precio) {
-      total += precio;
-      descripcion += `${producto} - $${precio}\n`;
-      document.getElementById('carritoResumen').textContent = `Total: $${total} MXN`;
+  function agregarAlCarrito(producto, precio) {
+  total += precio;
+  descripcion += `${producto} - $${precio}\n`;
+  document.getElementById('carritoResumen').textContent = `Total: $${total} MXN`;
 
-      // Animación y sonido
-      const popup = document.getElementById('mensajeCarrito');
-      popup.classList.add('mostrar');
-      document.getElementById('sonidoCompra').play();
+  // Mostrar popup animado
+  const popup = document.getElementById('mensajeCarrito');
+  popup.textContent = `¡${producto} añadido al carrito!`;
+  popup.classList.add('mostrar');
 
-      setTimeout(() => {
-        popup.classList.remove('mostrar');
-      }, 2000);
-    }
+  // Reproducir sonido si se puede
+  const sonido = document.getElementById('sonidoCompra');
+  if (sonido && sonido.play) {
+    sonido.currentTime = 0;
+    sonido.play().catch(e => {
+      console.warn("El navegador bloqueó el sonido:", e);
+    });
+  }
+
+  // Ocultar popup después de un rato
+  setTimeout(() => {
+    popup.classList.remove('mostrar');
+  }, 2000);
+}
+
 
     paypal.Buttons({
       createOrder: function(data, actions) {
