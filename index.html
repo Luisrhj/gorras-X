@@ -7,64 +7,78 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-    }
-    header {
       background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #111;
       color: white;
       padding: 20px 0;
+      animation: fadeInDown 1s ease;
     }
+
     h1 {
       margin: 0;
     }
+
     .modelos {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
+      animation: fadeInUp 1.2s ease;
     }
+
     .modelo {
       margin: 15px;
-      background-color: white;
+      background-color: #111;
       padding: 10px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
       width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeInCard 0.8s ease forwards;
     }
+
+    .modelo:nth-child(1) { animation-delay: 0.3s; }
+    .modelo:nth-child(2) { animation-delay: 0.5s; }
+    .modelo:nth-child(3) { animation-delay: 0.7s; }
+    .modelo:nth-child(4) { animation-delay: 0.9s; }
+    .modelo:nth-child(5) { animation-delay: 1.1s; }
+
+    .modelo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08);
+    }
+
     .modelo img {
       max-width: 100%;
       border-radius: 10px;
-      transition: transform 0.4s ease;
+      transition: transform 0.3s ease;
     }
+
     .modelo img:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-    .modelo button {
-      margin-top: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .modelo button:hover {
-      background-color: #218838;
-    }
+
     .contacto {
-      background-color: #fff;
+      background-color: #111;
+      color: white;
       margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
       width: 90%;
       max-width: 500px;
+      animation: fadeInUp 1.5s ease;
     }
+
     .contacto input, .contacto button {
       width: 80%;
       padding: 10px;
@@ -73,64 +87,97 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .contacto button {
       background-color: #007bff;
       color: white;
       border: none;
       cursor: pointer;
     }
+
     .contacto button:hover {
       background-color: #0056b3;
     }
+
     footer {
-      background-color: #000;
+      background-color: #111;
       color: white;
       padding: 15px 0;
       margin-top: 30px;
+      animation: fadeIn 2s ease;
     }
+
     footer a {
       color: #fff;
       text-decoration: underline;
+    }
+
+    /* Animaciones */
+    @keyframes fadeInCard {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Gorras X</h1>
+    <h1>Gorras Style MX</h1>
     <p>¡Compra las mejores gorras!</p>
   </header>
 
   <section class="modelos">
     <div class="modelo">
-      <img src="img/rosonesjc.jpg" alt="Gorra Rosones JC">
-      <p>Gorra Rosones JC - $3500</p>
-      <button onclick="comprar('Gorra Rosones JC')">Comprar</button>
+      <img src="img/rosonesjc.jpg" alt="Gorra Rosas JC">
+      <p>Gorra Rosas JC - $450</p>
     </div>
     <div class="modelo">
-      <img src="img/31crytsals.jpg" alt="Gorra 31 Crystals NY">
-      <p>Gorra 31 Crystals NY - $1800</p>
-      <button onclick="comprar('Gorra 31 Crystals NY')">Comprar</button>
+      <img src="img/31crytsals.jpg" alt="Gorra Crystals NY">
+      <p>Gorra Crystals NY - $500</p>
     </div>
     <div class="modelo">
       <img src="img/elmago.jpg" alt="Gorra El Mago LA">
-      <p>Gorra El Mago LA - $7000</p>
-      <button onclick="comprar('Gorra El Mago LA')">Comprar</button>
+      <p>Gorra El Mago LA - $520</p>
     </div>
     <div class="modelo">
       <img src="img/elbarbas.jpg" alt="Gorra El Barbas">
-      <p>Gorra El Barbas - $25000</p>
-      <button onclick="comprar('Gorra El Barbas')">Comprar</button>
+      <p>Gorra El Barbas - $480</p>
     </div>
     <div class="modelo">
-  <img src="img/elmagico.jpg" alt="Gorra El Mágico JC">
-  <p>Gorra El Mágico JC - $2000</p>
-  <button onclick="comprar('Gorra El Mágico JC')">Comprar</button>
-</div>
- </div>
-    <div class="modelo">
-      <img src="img/clubla.jpg" alt="Gorra Dandy LA club">
-      <p>Gorra Dandy LA club - $5500</p>
-      <button onclick="comprar('Gorra Dandy LA club')">Comprar</button>
+      <img src="img/elmagico.jpg" alt="Gorra El Mágico">
+      <p>Gorra El Mágico - $510</p>
     </div>
   </section>
 
@@ -157,13 +204,7 @@
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, '_blank');
     });
-
-    function comprar(producto) {
-      alert("Gracias por tu interés en " + producto + ". Te contactaremos por WhatsApp.");
-      const numero = "5215555555555";
-      const mensaje = encodeURIComponent("Hola, estoy interesado en el producto: " + producto);
-      window.open("https://wa.me/" + numero + "?text=" + mensaje, "_blank");
-    }
   </script>
 </body>
 </html>
+
