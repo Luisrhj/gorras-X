@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,6 +37,18 @@
     .modelo img {
       max-width: 100%;
       border-radius: 10px;
+    }
+    .modelo button {
+      margin-top: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .modelo button:hover {
+      background-color: #218838;
     }
     .contacto {
       background-color: #fff;
@@ -87,14 +98,17 @@
     <div class="modelo">
       <img src="img/rosonesjc.jpg" alt="Gorra Rosas JC">
       <p>Gorra Rosas JC - $450</p>
+      <button onclick="comprar('Gorra Rosas JC')">Comprar</button>
     </div>
     <div class="modelo">
       <img src="img/31crytsals.jpg" alt="Gorra Crystals NY">
       <p>Gorra Crystals NY - $500</p>
+      <button onclick="comprar('Gorra Crystals NY')">Comprar</button>
     </div>
     <div class="modelo">
       <img src="img/elmago.jpg" alt="Gorra El Mago LA">
       <p>Gorra El Mago LA - $520</p>
+      <button onclick="comprar('Gorra El Mago LA')">Comprar</button>
     </div>
   </section>
 
@@ -121,6 +135,13 @@
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, '_blank');
     });
+
+    function comprar(producto) {
+      alert("Gracias por tu interés en " + producto + ". Te contactaremos por WhatsApp.");
+      const numero = "5215555555555"; // Cambia este número por el tuyo real
+      const mensaje = encodeURIComponent("Hola, estoy interesado en el producto: " + producto);
+      window.open("https://wa.me/" + numero + "?text=" + mensaje, "_blank");
+    }
   </script>
 </body>
 </html>
