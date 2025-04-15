@@ -4,84 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gorras X</title>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     body {
+      font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       text-align: center;
+      overflow-x: hidden;
     }
+
     header {
-      background: #111;
+      background-color: #111;
       padding: 20px 0;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
     }
+
+    h1 {
+      margin: 0;
+    }
+
     .modelos {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
     }
+
     .modelo {
-      background: #111;
-      margin: 10px;
+      margin: 15px;
+      background-color: #111;
       padding: 10px;
       border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .modelo:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 25px rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08);
     }
+
     .modelo img {
       max-width: 100%;
       border-radius: 10px;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
+
     .modelo img:hover {
       transform: scale(1.05);
     }
+
     .modelo button {
       margin-top: 10px;
-      padding: 10px;
-      border: none;
-      background: #007bff;
+      padding: 10px 20px;
+      background-color: #28a745;
       color: white;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
     }
+
     .modelo button:hover {
-      background: #0056b3;
+      background-color: #218838;
     }
-    #carrito {
-      background: #111;
+
+    .contacto {
+      background-color: #111;
+      color: white;
       margin: 30px auto;
       padding: 20px;
       border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #444;
-    }
-    .contacto {
-      background-color: #111;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
       width: 90%;
       max-width: 500px;
     }
+
     .contacto input, .contacto button {
       width: 80%;
       padding: 10px;
@@ -90,145 +91,134 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .contacto button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      cursor: pointer;
+      background-color: #007bff;
     }
+
     .contacto button:hover {
-      background-color: #218838;
+      background-color: #0056b3;
     }
+
     footer {
-      background-color: #000;
+      background-color: #111;
       color: white;
       padding: 15px 0;
       margin-top: 30px;
     }
+
     footer a {
       color: #fff;
       text-decoration: underline;
     }
+
     #paypal-button-container {
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  <header data-aos="fade-down">
+    <h1>Gorras X</h1>
+    <p>¡Compra las mejores gorras!</p>
+  </header>
 
-<header>
-  <h1>Gorras Style MX</h1>
-  <p>¡Compra las mejores gorras!</p>
-</header>
+  <section class="modelos">
+    <div class="modelo" data-aos="zoom-in">
+      <img src="img/rosonesjc.jpg" alt="Gorra Rosas JC">
+      <p>Gorra Rosones JC - $3500</p>
+      <button onclick="agregarAlCarrito('Gorra Rosas JC', 450)">Comprar</button>
+    </div>
+    <div class="modelo" data-aos="zoom-in">
+      <img src="img/31crytsals.jpg" alt="Gorra Crystals NY">
+      <p>Gorra 31 Crystals NY - $1899</p>
+      <button onclick="agregarAlCarrito('Gorra Crystals NY', 500)">Comprar</button>
+    </div>
+    <div class="modelo" data-aos="zoom-in">
+      <img src="img/elmago.jpg" alt="Gorra El Mago LA">
+      <p>Gorra El Mago LA - $6500</p>
+      <button onclick="agregarAlCarrito('Gorra El Mago LA', 520)">Comprar</button>
+    </div>
+    <div class="modelo" data-aos="zoom-in">
+      <img src="img/elbarbas.jpg" alt="Gorra El Barbas">
+      <p>Gorra El Barbas - $20000</p>
+      <button onclick="agregarAlCarrito('Gorra El Barbas', 480)">Comprar</button>
+    </div>
+    <div class="modelo" data-aos="zoom-in">
+      <img src="img/elmagico.jpg" alt="Gorra El Mágico">
+      <p>Gorra El Mágico JC - $2100</p>
+      <button onclick="agregarAlCarrito('Gorra El Mágico', 510)">Comprar</button>
+    </div>
+  </section>
 
-<section class="modelos" id="productos">
-  <div class="modelo">
-    <img src="img/rosonesjc.jpg" alt="Rosas JC">
-    <p>Gorra Rosas JC - $450</p>
-    <button onclick="agregarAlCarrito('Gorra Rosas JC', 450)">Agregar al carrito</button>
-  </div>
-  <div class="modelo">
-    <img src="img/31crytsals.jpg" alt="Crystals NY">
-    <p>Gorra Crystals NY - $500</p>
-    <button onclick="agregarAlCarrito('Gorra Crystals NY', 500)">Agregar al carrito</button>
-  </div>
-  <div class="modelo">
-    <img src="img/elmago.jpg" alt="El Mago LA">
-    <p>Gorra El Mago LA - $520</p>
-    <button onclick="agregarAlCarrito('Gorra El Mago LA', 520)">Agregar al carrito</button>
-  </div>
-  <div class="modelo">
-    <img src="img/elbarbas.jpg" alt="El Barbas">
-    <p>Gorra El Barbas - $480</p>
-    <button onclick="agregarAlCarrito('Gorra El Barbas', 480)">Agregar al carrito</button>
-  </div>
-  <div class="modelo">
-    <img src="img/elmagico.jpg" alt="El Mágico">
-    <p>Gorra El Mágico - $510</p>
-    <button onclick="agregarAlCarrito('Gorra El Mágico', 510)">Agregar al carrito</button>
-  </div>
-</section>
+  <section class="contacto" data-aos="fade-up">
+    <h2>Contacto</h2>
+    <form id="formularioContacto">
+      <input type="text" id="nombre" placeholder="Tu nombre" required>
+      <input type="text" id="producto" placeholder="Producto de interés" required>
+      <button type="submit">Enviar por WhatsApp</button>
+    </form>
+  </section>
 
-<section id="carrito">
-  <h2>Tu carrito</h2>
-  <table id="tablaCarrito">
-    <thead>
-      <tr><th>Producto</th><th>Precio</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <p>Total: $<span id="total">0</span></p>
-  <div id="paypal-button-container"></div>
-</section>
+  <section class="contacto" data-aos="fade-up">
+    <h2>Carrito y Pago</h2>
+    <p id="carritoResumen">No hay productos en el carrito.</p>
+    <div id="paypal-button-container"></div>
+  </section>
 
-<section class="contacto">
-  <h2>¿Interesado en una gorra?</h2>
-  <form id="formularioContacto">
-    <input type="text" id="nombre" placeholder="Tu nombre" required>
-    <input type="text" id="producto" placeholder="Producto de interés" required>
-    <button type="submit">Enviar por WhatsApp</button>
-  </form>
-</section>
+  <footer data-aos="fade-in">
+    <p>Contacto directo por WhatsApp: <a href="https://wa.me/5215555555555" target="_blank">Enviar mensaje</a></p>
+  </footer>
 
-<footer>
-  <p>Contacto directo por WhatsApp: <a href="https://wa.me/5215555555555" target="_blank">Enviar mensaje</a></p>
-</footer>
-
-<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=MXN"></script>
-<script>
-  let carrito = [];
-  let total = 0;
-
-  function agregarAlCarrito(producto, precio) {
-    carrito.push({producto, precio});
-    actualizarCarrito();
-  }
-
-  function actualizarCarrito() {
-    const tbody = document.querySelector("#tablaCarrito tbody");
-    tbody.innerHTML = "";
-    total = 0;
-
-    carrito.forEach(item => {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${item.producto}</td><td>$${item.precio}</td>`;
-      tbody.appendChild(row);
-      total += item.precio;
+  <!-- WhatsApp Script -->
+  <script>
+    document.getElementById('formularioContacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const producto = document.getElementById('producto').value;
+      const mensaje = `Hola, soy ${nombre} y estoy interesado en el producto: ${producto}`;
+      const numeroWhatsApp = '5215555555555';
+      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
     });
+  </script>
 
-    document.getElementById("total").textContent = total;
-  }
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: total.toString()
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Gracias por tu compra, ' + details.payer.name.given_name + '!');
-        carrito = [];
-        actualizarCarrito();
-      });
+  <!-- PayPal SDK (sandbox) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=MXN"></script>
+  <script>
+    let total = 0;
+    let descripcion = "";
+
+    function agregarAlCarrito(producto, precio) {
+      total += precio;
+      descripcion += producto + " - $" + precio + "\\n";
+      document.getElementById('carritoResumen').textContent = `Total: $${total} MXN`;
     }
-  }).render('#paypal-button-container');
 
-  document.getElementById('formularioContacto').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const nombre = document.getElementById('nombre').value;
-    const producto = document.getElementById('producto').value;
-    const mensaje = `Hola, soy ${nombre} y estoy interesado en el producto: ${producto}`;
-    const numeroWhatsApp = '5215555555555';
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  });
-</script>
-
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: total.toString()
+            },
+            description: descripcion
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Gracias por tu compra, ' + details.payer.name.given_name + '!');
+          total = 0;
+          descripcion = "";
+          document.getElementById('carritoResumen').textContent = "No hay productos en el carrito.";
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
 </body>
 </html>
-
